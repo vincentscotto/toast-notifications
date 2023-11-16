@@ -35,64 +35,89 @@ $positions: (
   max-width: $toast-container-max-width;
   font-family: $toast-container-font;
   z-index: $toast-container-z-index;
+}
 
-  .toast {
-    position: inherit;
-    border-radius: $toast-border-radius;
-    padding: $toast-padding;
-    margin-bottom: $toast-margin-bottom;
-    color: $toast-color;
-    font-weight: $toast-font-weight-bold;
-    cursor: $toast-cursor;
-    opacity: $toast-opacity;
-    transition: $toast-transition;
+.toast {
+  position: inherit;
+  border-radius: $toast-border-radius;
+  padding: $toast-padding;
+  margin-bottom: $toast-margin-bottom;
+  color: $toast-color;
+  font-weight: $toast-font-weight-bold;
+  cursor: $toast-cursor;
+  opacity: $toast-opacity;
+  transition: $toast-transition;
 
-    .toast-header,
-    .toast-content {
-      font-size: 1em;
-      margin: 0;
-      padding: 0;
+  &.fade {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
 
+  &.slide-up {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    // add the following line to reset the transform when opacity becomes 1
+    &.active {
+      transform: translateY(0);
     }
+  }
 
-    .toast-content {
-      font-weight: $toast-font-weight-normal;
-      padding-top: 5px;
-    }
+  .toast-header,
+  .toast-content {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
 
-    &.success {
-      background-color: $success-background-color;
-    }
+  .toast-content {
+    font-weight: $toast-font-weight-normal;
+    padding-top: 5px;
+  }
 
-    &.error {
-      background-color: $error-background-color;
-    }
+  &.success {
+    background-color: $success-background-color;
+  }
 
-    // loop and generate classes
-    @each $position in $positions {
-      &.#{$position} {
-        @if str-index($position, 'top') {
-          top: $toast-container-top;
-        }
+  &.error {
+    background-color: $error-background-color;
+  }
 
-        @else {
-          bottom: $toast-container-top;
-        }
+  .icon {
+    // icon if needed
+  }
 
-        @if str-index($position, 'left') {
-          left: $toast-container-right;
-        }
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
 
-        @else if str-index($position, 'right') {
-          right: $toast-container-right;
-        }
+  // loop and generate classes
+  @each $position in $positions {
+    &.#{$position} {
+      @if str-index($position, 'top') {
+        top: $toast-container-top;
+      }
 
-        @else {
-          left: 50%;
-          transform: translateX(-50%);
-        }
+      @else {
+        bottom: $toast-container-top;
+      }
+
+      @if str-index($position, 'left') {
+        left: $toast-container-right;
+      }
+
+      @else if str-index($position, 'right') {
+        right: $toast-container-right;
+      }
+
+      @else {
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
-
   }
 }

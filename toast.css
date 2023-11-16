@@ -6,7 +6,8 @@
   font-family: "Arial";
   z-index: 9999;
 }
-#toast-container .toast {
+
+.toast {
   position: inherit;
   border-radius: 5px;
   padding: 16px;
@@ -17,45 +18,63 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-#toast-container .toast .toast-header,
-#toast-container .toast .toast-content {
+.toast.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.toast.slide-up {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.toast.slide-up.active {
+  transform: translateY(0);
+}
+.toast .toast-header,
+.toast .toast-content {
   font-size: 1em;
   margin: 0;
   padding: 0;
 }
-#toast-container .toast .toast-content {
+.toast .toast-content {
   font-weight: normal;
   padding-top: 5px;
 }
-#toast-container .toast.success {
+.toast.success {
   background-color: #4CAF50;
 }
-#toast-container .toast.error {
+.toast.error {
   background-color: #f44336;
 }
-#toast-container .toast.top-left {
+.toast .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.toast.top-left {
   top: 16px;
   left: 16px;
 }
-#toast-container .toast.top-center {
+.toast.top-center {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
-#toast-container .toast.top-right {
+.toast.top-right {
   top: 16px;
   right: 16px;
 }
-#toast-container .toast.bottom-left {
+.toast.bottom-left {
   bottom: 16px;
   left: 16px;
 }
-#toast-container .toast.bottom-center {
+.toast.bottom-center {
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
-#toast-container .toast.bottom-right {
+.toast.bottom-right {
   bottom: 16px;
   right: 16px;
 }/*# sourceMappingURL=toast.css.map */
