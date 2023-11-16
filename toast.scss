@@ -1,0 +1,98 @@
+// vars
+$toast-container-position: fixed;
+$toast-container-top: 16px;
+$toast-container-right: 16px;
+$toast-container-max-width: 300px;
+$toast-container-z-index: 9999;
+$toast-container-font: "Arial";
+
+$toast-border-radius: 5px;
+$toast-padding: 16px;
+$toast-margin-bottom: 8px;
+$toast-color: #fff;
+$toast-font-weight-bold: bold;
+$toast-font-weight-normal: normal;
+$toast-cursor: pointer;
+$toast-opacity: 0;
+$toast-transition: opacity 0.3s ease-in-out;
+
+$success-background-color: #4CAF50;
+$error-background-color: #f44336;
+
+$positions: (
+  'top-left',
+  'top-center',
+  'top-right',
+  'bottom-left',
+  'bottom-center',
+  'bottom-right'
+);
+
+#toast-container {
+  position: $toast-container-position;
+  top: $toast-container-top;
+  right: $toast-container-right;
+  max-width: $toast-container-max-width;
+  font-family: $toast-container-font;
+  z-index: $toast-container-z-index;
+
+  .toast {
+    position: inherit;
+    border-radius: $toast-border-radius;
+    padding: $toast-padding;
+    margin-bottom: $toast-margin-bottom;
+    color: $toast-color;
+    font-weight: $toast-font-weight-bold;
+    cursor: $toast-cursor;
+    opacity: $toast-opacity;
+    transition: $toast-transition;
+
+    .toast-header,
+    .toast-content {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .toast-content {
+      font-weight: $toast-font-weight-normal;
+      padding-top: 5px;
+    }
+
+    &.success {
+      background-color: $success-background-color;
+    }
+
+    &.error {
+      background-color: $error-background-color;
+    }
+
+    // loop and generate classes
+    @each $position in $positions {
+      &.#{$position} {
+        @if str-index($position, 'top') {
+          top: $toast-container-top;
+        }
+
+        @else {
+          bottom: $toast-container-top;
+        }
+
+        @if str-index($position, 'left') {
+          left: $toast-container-right;
+        }
+
+        @else if str-index($position, 'right') {
+          right: $toast-container-right;
+        }
+
+        @else {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+  }
+}
