@@ -53,6 +53,7 @@ $positions: (
   cursor: $notify-cursor;
   opacity: $notify-opacity;
   transition: $notify-transition;
+  z-index: 1;
 
   background-color: $notify-default;
 
