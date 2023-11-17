@@ -1,5 +1,3 @@
-// toast.js
-
 function showToast(message, status, options = {}) {
   const {
     duration = 3000,
@@ -90,22 +88,41 @@ function showToast(message, status, options = {}) {
 }
 
 // example usage with additional options
-showToast('Customized Toast 1', 'success', {
-  duration: 5000,
-  placement: 'bottom-right',
+showToast('Good news everyone!', 'success', {
+  duration: 4000,
+  placement: 'top-right',
   content: 'This would add content under the Customized Toast 1 header',
   additionalClass: 'custom-toast',
   onClick: () => {
     console.log('Toast clicked!');
   },
-  icon: 'fas fa-check', // font awesome class for a checkmark icon
+  icon: 'fas fa-check',
   closeButton: true,
   autoHide: true,
-  animation: 'slide-up', // slide-up animation in your CSS
+  animation: 'slide-up',
 });
 
-showToast('Customized Toast 2', 'error', {
+showToast('Error!', 'error', {
   duration: 5000,
   placement: 'top-center',
+  content: 'This is an error popup',
   additionalClass: 'custom-toast',
 });
+
+showToast('Information', 'info', {
+  duration: 6000,
+  placement: 'bottom-center',
+  content: 'This is an information popup',
+  additionalClass: 'custom-toast',
+  animation: '',
+});
+
+showToast('Warning', 'warning', {
+  duration: 7500,
+  placement: 'bottom-left',
+  content: 'This is an warning popup',
+  additionalClass: 'custom-toast',
+  animation: '',
+});
+
+showToast('Default', 'default', {});

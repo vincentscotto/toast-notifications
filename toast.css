@@ -17,6 +17,7 @@
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  background-color: rgb(0, 106, 255);
 }
 .toast.fade {
   opacity: 0;
@@ -45,6 +46,12 @@
 }
 .toast.error {
   background-color: #f44336;
+}
+.toast.warning {
+  background-color: #cbcf11;
+}
+.toast.info {
+  background-color: #36a5f4;
 }
 .toast .close-button {
   position: absolute;
