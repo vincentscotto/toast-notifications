@@ -61,6 +61,8 @@
 .notify .notify-header,
 .notify .notify-content {
   font-size: 1em;
+  color: #fff;
+  font-weight: bold;
   margin: 0;
   padding: 0;
 }
