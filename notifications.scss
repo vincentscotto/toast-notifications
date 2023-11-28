@@ -16,11 +16,23 @@ $notify-cursor: pointer;
 $notify-opacity: 0;
 $notify-transition: opacity 0.3s ease-in-out;
 
+$borderSize: 2px;
+
 $success-background-color: #4CAF50;
+$success-border-color: #038708;
+
 $error-background-color: #f44336;
+$error-border-color: #f44336;
+
 $warning-background-color: #f69800;
+$warning-border-color: #f69800;
+
 $info-background-color: #36a5f4;
+$info-border-color: #36a5f4;
+
 $notify-default: rgb(0, 106, 255);
+$notiborder: rgb(0, 106, 255);
+
 
 $positions: (
   'top-left',
@@ -120,18 +132,22 @@ $positions: (
 
   &.success {
     background-color: $success-background-color;
+    // border: $borderSize solid $success-border-color;
   }
 
   &.error {
     background-color: $error-background-color;
+    // border: $borderSize solid $error-border-color;
   }
 
   &.warning {
     background-color: $warning-background-color;
+    // border: $borderSize solid $warning-border-color;
   }
 
   &.info {
     background-color: $info-background-color;
+    // border: $borderSize solid $info-border-color;
   }
 
   .icon {}
